@@ -1,0 +1,9 @@
+A static method is one that belongs to a class instead of an instance of a class and this method can be called without an instance or 
+the object of the class. 
+If a static keyword is not mentioned before the class name then it is by default a non-static class. 
+Non-static methods can access any method that is static and it's variable even without creating an object.
+Static methods can access only static variables without object. For accessing non-static variables it requires an object.
+
+In static methods, the memory allocation is done only once since only static methods can access the static variable which happens once at the
+time of class loading. Non-static - non-static are also called as instance methods. Everytime a method is called for a particular class instance, 
+the memory is allotted.
