@@ -1,0 +1,94 @@
+Given an expression string x. Examine whether the pairs and the orders of {,},(,),[,] are correct in exp.
+For example, the function should return 'true' for exp = [()]{}{[()()]()} and 'false' for exp = [(]).
+
+Note: The drive code prints "balanced" if function return true, otherwise it prints "not balanced".
+
+Example 1:
+
+Input:
+{([])}
+Output: 
+true
+Explanation: 
+{ ( [ ] ) }. Same colored brackets can form 
+balanced pairs, with 0 number of 
+unbalanced bracket.
+
+//{ Driver Code Starts
+import java.util.*;
+import java.io.*;
+import java.lang.*;
+
+class Driverclass
+{
+    public static void main(String args[])
+    {
+        Scanner sc = new Scanner(System.in);
+        
+        //Reading total number of testcases
+        int t= sc.nextInt();
+        
+        while(t-- >0)
+        {
+            //reading the string
+            String st = sc.next();
+            
+            //calling ispar method of Paranthesis class 
+            //and printing "balanced" if it returns true
+            //else printing "not balanced"
+            if(new Solution().ispar(st) == true)
+                System.out.println("balanced");
+            else
+                System.out.println("not balanced");
+        
+        }
+    }
+}
+// } Driver Code Ends
+
+
+
+class Solution
+{
+    //Function to check if brackets are balanced or not.
+    static boolean ispar(String x)
+    {
+    // add your code here
+        Stack stack=new Stack();
+        char arr[]=x.toCharArray();
+        
+        for(int i=0;i<arr.length;i++)
+        {
+            char c=arr[i];
+            if(c=='['||c=='{'||c=='(')
+            {
+                stack.push(c);
+                continue;
+            }
+            if(stack.isEmpty())
+            {
+                return false;
+            }
+            char p;
+            switch(c)
+            {
+                case '}':
+                    p=(char) stack.pop();
+                    if(p=='['||p=='(')
+                    return false;
+                    break;
+                case ']':
+                    p=(char) stack.pop();
+                    if(p=='{'||p=='(')
+                    return false;
+                    break;
+                case ')':
+                    p=(char) stack.pop();
+                    if(p=='{'||p=='[')
+                    return false;
+                    break;
+            }
+        }
+        return (stack.isEmpty());
+    }
+}
