@@ -92,3 +92,10 @@ class Solution
         return (stack.isEmpty());
     }
 }
+
+
+//
+Stack.isEmpty()
+Parameters: This method does not take any parameter.
+
+Return Value: This function returns True if the Stackis empty else it returns False.
