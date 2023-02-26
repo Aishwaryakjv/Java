@@ -68,3 +68,21 @@ class Solution {
     }
 }
 
+//much moreeee efficient without datastruct but order O(n)
+
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+         int maxl=0;
+	    int index;
+	    for(int right=0,left=0;right<s.length();right++)
+	    {
+	        index=s.indexOf(s.charAt(right),left);
+	        if(index!=right)
+	        {
+	            left=index+1;
+	        }
+	        maxl=Math.max(right-left+1,maxl);
+	    }
+	    return maxl;
+    }
+}
