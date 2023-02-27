@@ -1,0 +1,46 @@
+Longest Even Length Substring such that Sum of First and Second Half is same
+
+Given a string ‘str’ of digits, find the length of the longest substring of ‘str’, such that the length of the substring is 2k digits and sum of left k digits is equal to the sum of right k digits. 
+
+Examples : 
+
+Input: str = "123123"
+Output: 6
+The complete string is of even length and sum of first and second
+half digits is same
+
+Input: str = "1538023"
+Output: 4
+The longest substring with same first and second half sum is "5380"
+
+
+import java.io.*;
+
+class Main{
+    
+    static int calcLen(String s)
+    {
+        int n=s.length(),maxLen=0;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=i+1;j<n;j+=2)
+            {
+                int len=j-i+1;
+                int leftSum=0,rightSum=0;
+                for(int k=0;k<len/2;k++)
+                {
+                    leftSum+=(s.charAt(i+k)-'0');
+                    rightSum+=(s.charAt(i+k+len/2)-'0');
+                }
+                if(maxLen<len && leftSum==rightSum)
+                    maxLen=len;
+            }
+        }
+        return maxLen;
+    }
+    
+    public static void main(String args[]){
+        String s="153803";
+        System.out.print("Length of the substring is: "+calcLen(s));
+    }
+}
