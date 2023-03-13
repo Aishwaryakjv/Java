@@ -59,3 +59,8 @@ string to string builder:
 String s="hi";
 StringBuilder str = new StringBuilder(s);
 System.out.print(str);
+
+for long datatype:
+syntax:
+long n;
+
