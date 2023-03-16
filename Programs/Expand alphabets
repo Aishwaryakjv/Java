@@ -1,0 +1,35 @@
+i/p:
+4a2b
+o/p:
+aaaabb
+
+import java.util.*;
+public class Main {
+
+    public static void main(String[] args) {
+
+        Scanner sc= new Scanner(System.in);
+        String s=sc.nextLine();
+        char[] a=s.toCharArray();
+        int len=s.length();
+        String ss="";
+        for(int i=0;i<len;i++)
+        {
+            // String ss="";
+            if(!Character.isAlphabetic(a[i]))
+            {
+                ss+=a[i];
+            }
+            else
+            {
+                int n=Integer.parseInt(ss);
+                for(int j=0;j<n;j++)
+                {
+                    System.out.print(a[i]);
+                }
+                ss="";
+            }
+        }
+        
+	}
+}
