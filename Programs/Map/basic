@@ -1,0 +1,60 @@
+Sample Input
+
+3
+uncle sam
+99912222
+tom
+11122222
+harry
+12299933
+uncle sam
+uncle tom
+harry
+Sample Output
+
+uncle sam=99912222
+Not found
+harry=12299933
+
+
+import java.util.*;
+import java.io.*;
+
+class Solution{
+	public static void main(String []argh)
+	{
+		Scanner in = new Scanner(System.in);
+		int n=in.nextInt();
+		in.nextLine();
+        String[] name = new  String[n];
+        int phone[]=new int[n];
+		for(int i=0;i<n;i++)
+		{
+			name[i]=in.nextLine();
+		    phone[i]=in.nextInt();
+			in.nextLine();
+		}
+        String[] s=new String[n];
+        int j=0;
+		while(in.hasNext())
+		{
+			s[j++]=in.nextLine();
+		}
+        Map<String,Integer> mp=new HashMap<>();
+        for(int i=0;i<n;i++)
+        {
+            mp.put(name[i],phone[i]);
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(mp.containsKey(s[i]))
+            System.out.println(name[i]+"="+phone[i]);
+            else
+            System.out.println("Not found");
+        }
+        // System.out.print(mp);
+	}
+}
+
+
+
