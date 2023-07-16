@@ -1,0 +1,37 @@
+public class Main
+{
+    static void print(int n)
+    {
+        if(n==1)
+        {
+            System.out.print(n);
+            return;
+        }
+        System.out.print(n+" ");
+        print(n-1);
+    }
+	public static void main(String[] args) {
+		int n=5;
+		print(n);
+	}
+}
+
+
+public class Main
+{
+    static int f=1;
+    static void fact(int n)
+    {
+        if(n==1)
+        {
+            System.out.print(f);
+            return;
+        }
+        f*=n;
+        fact(n-1);
+    }
+	public static void main(String[] args) {
+		int n=3;
+		fact(n);
+	}
+}
